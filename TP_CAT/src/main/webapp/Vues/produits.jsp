@@ -20,7 +20,7 @@ function confirmation(id){
 <body>
 <form action="controleur.php" method="post">
 <table>
-<tr><td>Id</td><td><input type="text" name="idproduit"  value="${produit.idProduit}"></td></tr>
+<tr><td>Id</td><td>${produit.idProduit }<input type="hidden" name="idproduit"  value="${produit.idProduit}"></td></tr>
 <tr><td>Designation</td><td><input type="text" name="designation"  value="${produit.designation}"></td></tr>
 <tr><td>Prix</td><td><input type="text" name="prix"  value="${produit.prix}"></td></tr>
 <tr><td>Quantite</td><td><input type="text" name="quantite"   value="${produit.quantite}"></td></tr>

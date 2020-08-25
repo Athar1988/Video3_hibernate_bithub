@@ -1,15 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
-    <display-name>TP_CAT</display-name>
-    <servlet>
-    <servlet-name>cs</servlet-name>
-    <servlet-class>coucheweb.ControleurCatalogueServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-    <servlet-name>cs</servlet-name>
-    <url-pattern>*.php</url-pattern>
-    </servlet-mapping>
-    <welcome-file-list>
-        <welcome-file>Vues/produits.jsp</welcome-file>
-        </welcome-file-list>
-    </web-app>
+<web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	<display-name>TP_CAT</display-name>
+	<servlet>
+		<servlet-name>cs</servlet-name>
+		<servlet-class>coucheweb.ControleurCatalogueServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>cs</servlet-name>
+		<url-pattern>*.php</url-pattern>
+	</servlet-mapping>
+
+	<security-constraint>
+		<!-- Liste des pages protégées -->
+		<web-resource-collection>
+			<web-resource-name>cs</web-resource-name>
+			<url-pattern>*.php</url-pattern>
+			<http-method>GET</http-method>
+			<http-method>POST</http-method>
+		</web-resource-collection>
+		<!-- Rôles des utilisateurs ayant le droit d'y accéder -->
+		<auth-constraint>
+			<role-name>manger</role-name>
+		</auth-constraint>
+	</security-constraint>
+
+
+	<login-config>
+		<!-- Type d'authentification -->
+		<auth-method>BASIC</auth-method>
+		<realm-name>Authentification de securite role servlet</realm-name>
+	</login-config>
+
+
+
+	<welcome-file-list>
+		<welcome-file>Vues/produits.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>
