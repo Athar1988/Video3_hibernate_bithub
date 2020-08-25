@@ -24,7 +24,14 @@ function confirmation(id){
 <tr><td>Designation</td><td><input type="text" name="designation"  value="${produit.designation}"></td></tr>
 <tr><td>Prix</td><td><input type="text" name="prix"  value="${produit.prix}"></td></tr>
 <tr><td>Quantite</td><td><input type="text" name="quantite"   value="${produit.quantite}"></td></tr>
-<tr><td></td><td><input type="submit" name="action" value="Save"></td></tr>
+<tr><td></td><td>
+<c:if test="${produit==null}">
+<input type="submit" name="action" value="Save">
+</c:if>
+<c:if test="${produit!=null}">
+<input type="submit" name="action" value="Update">
+</c:if>
+</td></tr>
 </table>
 </form>
 <div><table><tr><th>IDProduit</th><th>Designation</th><th>Prix</th><th>Quantité</th></tr>

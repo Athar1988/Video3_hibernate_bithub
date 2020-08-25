@@ -8,6 +8,6 @@ public interface ICatalogueMetier {
 	public Produit getProduit(Long idProd);
 	public List<Produit> getProduitParMC(String mc);
 	public void deleteProduit(Long idProd);
-	public void metier.getProduit(id)(Produit p);
+	public void updateProduit(Produit p);
 
 }

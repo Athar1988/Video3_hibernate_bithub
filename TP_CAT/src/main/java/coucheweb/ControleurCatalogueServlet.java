@@ -24,21 +24,37 @@ public class ControleurCatalogueServlet extends HttpServlet{
 		String action=req.getParameter("action");
 		if(action!=null) {
 		if(action.equals("Save")) {
-			//try {
+			try {
 			String des= req.getParameter("designation");
 			double prix=Double.parseDouble(req.getParameter("prix"));
 			int qte=Integer.parseInt(req.getParameter("quantite"));
 			Produit P= new Produit(des,prix,qte);
 			metier.addProduit(P);
-			//}catch(Exception e) {
-			//	req.setAttribute("exception", );
-			//}
+			}catch(Exception e) {
+				req.setAttribute("exception","saisie invalide" );
+			}
 		}
 		else if (action.equals("supp")) {
 			// recupere un parametre de suppression
 			 Long id=Long.parseLong(req.getParameter("id"));
 			 metier.deleteProduit(id);
 		}
+		else if (action.equals("Update")) {
+			try {
+			Long id=Long.parseLong(req.getParameter("idproduit"));
+			String des= req.getParameter("designation");
+			double prix=Double.parseDouble(req.getParameter("prix"));
+			int qte=Integer.parseInt(req.getParameter("quantite"));
+			Produit P= new Produit(des,prix,qte);
+			P.setIdProduit(id);
+			 metier.updateProduit(P);
+			}catch(Exception e){
+				e.printStackTrace();
+				req.setAttribute("exception", "saisie invalide");
+			}
+
+		}
+		
 		else if (action.equals("edit")) {
 			// recupere un parametre de suppression
 			 Long id=Long.parseLong(req.getParameter("id"));
@@ -46,7 +62,6 @@ public class ControleurCatalogueServlet extends HttpServlet{
 			// metier.updateProduit(metier.getProduit(id));
 			 req.setAttribute("produit", p);
 		}
-		
 		}
 //permet de chaque si je recupere les donnees et la liste je revien a la page web
 		//stocke un attribut dont la quell je stock une liste produit
