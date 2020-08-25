@@ -9,7 +9,6 @@
 <link rel="stylesheet" type="text/css"  href="css/style.css">
 </head>
 <body>
-${exception}
 <form action="controleur.php" method="post">
 <table>
 <tr><td>Designation</td><td><input type="text" name="designation"></td></tr>
@@ -18,7 +17,7 @@ ${exception}
 <tr><td></td><td><input type="submit" name="action" value="Save"></td></tr>
 </table>
 </form>
-<div><table><tr><th>IDProduit</th><th>Designation</th><th>Prix</th><th>Quantité</th><th>Suppression</th></tr>
+<div><table><tr><th>IDProduit</th><th>Designation</th><th>Prix</th><th>Quantité</th></tr>
 <c:forEach items="${produits}" var="p">
 <tr>
 <td>${p.idProduit}</td>
