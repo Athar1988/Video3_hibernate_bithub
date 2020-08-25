@@ -12,9 +12,9 @@ public class TestMetier {
 		// TODO Auto-generated method stub
 		CatalogueMetierImp metier = new CatalogueMetierImp();
 		// ajouter des champs a notre table
-		metier.addProduit(new Produit("HP 125", 123.33, 23));
-		metier.addProduit(new Produit("HP 234", 547.33, 2));
-		metier.addProduit(new Produit("Compag", 236.0, 15));
+	//	metier.addProduit(new Produit("HP 125", 123.33, 23));
+	//	metier.addProduit(new Produit("HP 234", 547.33, 2));
+		metier.addProduit(new Produit("aaaaa", 236.0, 15));
 		// fait un recherche par mot de passe
 		List<Produit> prods = metier.getProduitParMC("h");
 		for (Produit p : prods) {
