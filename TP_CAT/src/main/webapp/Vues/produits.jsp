@@ -6,14 +6,24 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<script type="text/javascript">
+function confirmation(id){
+	var conf=confirm("Vous- voulez vraiment supprimer cette article");
+	if(conf==true){
+		document.location="controleur.php?action=supp&id="+id;
+		
+	}
+}
+</script>
 <link rel="stylesheet" type="text/css"  href="css/style.css">
 </head>
 <body>
 <form action="controleur.php" method="post">
 <table>
-<tr><td>Designation</td><td><input type="text" name="designation"></td></tr>
-<tr><td>Prix</td><td><input type="text" name="prix"></td></tr>
-<tr><td>Quantite</td><td><input type="text" name="quantite"></td></tr>
+<tr><td>Id</td><td><input type="text" name="idproduit"  value="${produit.idProduit}"></td></tr>
+<tr><td>Designation</td><td><input type="text" name="designation"  value="${produit.designation}"></td></tr>
+<tr><td>Prix</td><td><input type="text" name="prix"  value="${produit.prix}"></td></tr>
+<tr><td>Quantite</td><td><input type="text" name="quantite"   value="${produit.quantite}"></td></tr>
 <tr><td></td><td><input type="submit" name="action" value="Save"></td></tr>
 </table>
 </form>
@@ -24,7 +34,14 @@
 <td>${p.designation}</td>
 <td>${p.prix}</td>
 <td>${p.quantite}</td>
-<td><a   href="controleur.php?action=supp&id=${p.idProduit}">supprimer </a>   </td>
+<td>
+<!-- <a   href="controleur.php?action=supp&id=${p.idProduit}">supprimer </a>  -->
+<a   href="javascript:confirmation('${p.idProduit}')">supprimer </a> 
+
+  </td>
+  <td>
+  <a   href="controleur.php?action=edit&id=${p.idProduit}">Modifier </a>
+  </td>
 </tr>
 </c:forEach>
 </table></div>
