@@ -18,6 +18,7 @@ function confirmation(id){
 <link rel="stylesheet" type="text/css"  href="css/style.css">
 </head>
 <body>
+${exception}
 <form action="controleur.php" method="post">
 <table>
 <tr><td>Id</td><td>${produit.idProduit }<input type="hidden" name="idproduit"  value="${produit.idProduit}"></td></tr>
